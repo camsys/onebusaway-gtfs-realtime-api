@@ -12,7 +12,8 @@
   <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/wiki/</url>
 
   <properties>
-    <protobuf.version>3.12.4</protobuf.version>
+    <protobuf.version>3.21.12</protobuf.version>
+    <gtfs-realtime-bindings.version>0.0.9-cs-SNAPSHOT</gtfs-realtime-bindings.version>
   </properties>
 
   <repositories>
@@ -92,16 +93,6 @@
           </execution>
         </executions>
         <configuration>
-          <excludes>
-            <exclude>
-              <!--
-                We don't actually want to build gtfs-realtime.proto, since it's included in
-                io.mobilitydata.transit:gtfs-realtime-bindings, but we do need it to be available for the extension
-                .proto files to import. Thus, it is excluded here.
-               -->
-              com/google/transit/realtime/gtfs-realtime.proto
-            </exclude>
-          </excludes>
           <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
         </configuration>
       </plugin>
@@ -121,11 +112,6 @@
   </dependencyManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>io.mobilitydata.transit</groupId>
-      <artifactId>gtfs-realtime-bindings</artifactId>
-      <version>0.0.6</version>
-    </dependency>
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
