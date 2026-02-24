@@ -4,3 +4,8 @@ pom.xml.releaseBackup
 .settings
 .project
 .classpath
+.idea/
+
+src/main/proto/com/google/.DS_Store
+
+src/main/proto/com/google/transit/.DS_Store
